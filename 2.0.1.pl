@@ -16,7 +16,7 @@ my $rows;
 sub tringle_print {
 
     print "Введите число уровней пирамиды: ";
-    chomp( $rows = <STDIN> );
+    $rows = <STDIN>;
 
     my $i;
     my $j;
@@ -24,18 +24,11 @@ sub tringle_print {
 
     if ( $rows >= 1 && $rows <= 12 ) {
 
-        for ( $i = 0 ; $i <= $rows ; $i++ )
-        {   # цикл по количеству уровней пирамиды
-
-            for ( $j = 0 ; $j < $rows - $i ; $j++ ) {
-                print " ";    # print пробелы
-            }
-
-            for ( $k = 1 ; $k <= ( 2 * $i - 1 ) ; $k++ ) {
-                print "*";    # print звёздочки
-            }
-
-            print "\n";       # новый уровень пирамиды
+        my $i = 0;
+        for ( $i = $rows ; $i > 0 ; $i-- ) {
+            print " " x $i;
+            print "*" x ( ( 1 + 2 * ( $rows - $i ) ) );
+            print "\n";
         }
 
     }
@@ -45,4 +38,4 @@ sub tringle_print {
     }
 }
 
-&tringle_print;               # вызов функции
+&tringle_print;    # вызов функции
