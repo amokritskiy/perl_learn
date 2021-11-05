@@ -18,9 +18,6 @@ sub tringle_print {
     print "Введите число уровней пирамиды: ";
     $rows = <STDIN>;
 
-    my $i;
-    my $j;
-    my $k;
 
     if ( $rows >= 1 && $rows <= 12 ) {
 
